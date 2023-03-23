@@ -8,8 +8,14 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 700; 
 }
 
+/* Small devices (landscape phones, 544px and up) */
+@media (min-width: 544px) {  
+    p {font-size:1.5rem;} /*1rem = 16px*/
+}
+
 p {
     color: #8f8f8f;
+    font-size: 1rem;
 }
 
 .text-justify {
