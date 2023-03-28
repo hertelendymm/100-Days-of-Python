@@ -5,16 +5,9 @@ from tkinter import messagebox
 from PIL import Image,ImageTk
 
 # ---------------------------- CONSTANTS ------------------------------- #
-PINK = "#e2979c"
-RED = "#93BFCF"
-# RED = "#6D67E4"
-# RED = "#e7305b"
-GREEN = "#554994"
-# GREEN = "#DFA67B"
-# GREEN = "#9bdeac"
-YELLOW = "#BDCDD6"
-# YELLOW = "#453C67"
-# YELLOW = "#f7f5dd"
+BUTTON_COLOR = "#93BFCF"
+TEXT_COLOR = "#554994"
+BACKGROUND_COLOR = "#BDCDD6"
 FONT_NAME = "Courier"
 
 description_text = "1. Select watermark image (Transparnet background, .PNG)\n2. Select the image you want to add the watermark\n3. You can change the position, size and opacity of the watermark\n4. Save your work"
@@ -110,22 +103,22 @@ def save_work():
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
 window.title("Watermarking App")
-window.config(padx=20, pady=20, bg=YELLOW)
+window.config(padx=20, pady=20, bg=BACKGROUND_COLOR)
 
 # App title and "how to use" description
 label_title = Label(text="Add Watermark to your images")
-label_title.config(bg=YELLOW, highlightthickness=0, fg=GREEN, font=(FONT_NAME, 16, "bold"))
+label_title.config(bg=BACKGROUND_COLOR, highlightthickness=0, fg=TEXT_COLOR, font=(FONT_NAME, 16, "bold"))
 label_title.grid(column=0, row=0, sticky=W, columnspan=2)
 label_description = Label(text=description_text, justify=LEFT )
-label_description.config(bg=YELLOW, highlightthickness=0, fg=GREEN, font=(FONT_NAME, 12, "normal"))
+label_description.config(bg=BACKGROUND_COLOR, highlightthickness=0, fg=TEXT_COLOR, font=(FONT_NAME, 12, "normal"))
 label_description.grid(column=0, row=1, sticky=W, columnspan=2, padx=(0, 20))
 
 # Select watermark button
-button_select_watermark = Button(text="Select Watermark", command=add_watermark, highlightbackground=YELLOW, fg=GREEN, bg=RED,width=20, font=(FONT_NAME, 10, "bold"))
+button_select_watermark = Button(text="Select Watermark", command=add_watermark, highlightbackground=BACKGROUND_COLOR, fg=TEXT_COLOR, bg=BUTTON_COLOR,width=20, font=(FONT_NAME, 10, "bold"))
 button_select_watermark.grid(column=0, row=2)
 
 # Select image button
-button_select_image = Button(text="SelectImage", command=add_image, highlightbackground=YELLOW, fg=GREEN, bg=RED, width=20, font=(FONT_NAME, 10, "bold"))
+button_select_image = Button(text="SelectImage", command=add_image, highlightbackground=BACKGROUND_COLOR, fg=TEXT_COLOR, bg=BUTTON_COLOR, width=20, font=(FONT_NAME, 10, "bold"))
 button_select_image.grid(column=1, row=2)
 
 # Load the image
@@ -138,7 +131,7 @@ label_image.grid(column=2, row=0, rowspan=10)
 
 # Watermark size settings
 label_size = Label(text="Size:", justify=RIGHT )
-label_size.config(bg=YELLOW, highlightthickness=0, fg=GREEN, font=(FONT_NAME, 12, "normal"))
+label_size.config(bg=BACKGROUND_COLOR, highlightthickness=0, fg=TEXT_COLOR, font=(FONT_NAME, 12, "normal"))
 label_size.grid(column=0, row=3, sticky=E, padx=(0, 20))
 spinbox_size = Spinbox(from_=1, to=50, increment=1, width=5, command=set_wm_size)
 spinbox_size.grid(column=1, row=3, sticky=W, padx=(0, 20))
@@ -146,15 +139,15 @@ spinbox_size.grid(column=1, row=3, sticky=W, padx=(0, 20))
 
 # Watermark position settings
 label_position = Label(text="Position:", justify=RIGHT )
-label_position.config(bg=YELLOW, highlightthickness=0, fg=GREEN, font=(FONT_NAME, 12, "normal"))
+label_position.config(bg=BACKGROUND_COLOR, highlightthickness=0, fg=TEXT_COLOR, font=(FONT_NAME, 12, "normal"))
 label_position.grid(column=0, row=5, sticky=E, padx=(0, 20))
 radio_state = StringVar()   # create a StringVar to store the selected option
 radio_state.set("Center")   # set the initial value of the StringVar
-radiobutton1 = Radiobutton(text="Top Left", value="Top-Left", variable=radio_state, command=set_wm_position, background=YELLOW, fg=GREEN, font=(FONT_NAME, 10, "bold"))
-radiobutton2 = Radiobutton(text="Top Right", value="Top-Right", variable=radio_state, command=set_wm_position, background=YELLOW, fg=GREEN, font=(FONT_NAME, 10, "bold"))
-radiobutton3 = Radiobutton(text="Center", value="Center", variable=radio_state, command=set_wm_position, background=YELLOW, fg=GREEN, font=(FONT_NAME, 10, "bold"))
-radiobutton4 = Radiobutton(text="Bottom Left", value="Bottom-Left", variable=radio_state, command=set_wm_position, background=YELLOW, fg=GREEN, font=(FONT_NAME, 10, "bold"))
-radiobutton5 = Radiobutton(text="Bottom Right", value="Bottom-Right", variable=radio_state, command=set_wm_position, background=YELLOW, fg=GREEN, font=(FONT_NAME, 10, "bold"))
+radiobutton1 = Radiobutton(text="Top Left", value="Top-Left", variable=radio_state, command=set_wm_position, background=BACKGROUND_COLOR, fg=TEXT_COLOR, font=(FONT_NAME, 10, "bold"))
+radiobutton2 = Radiobutton(text="Top Right", value="Top-Right", variable=radio_state, command=set_wm_position, background=BACKGROUND_COLOR, fg=TEXT_COLOR, font=(FONT_NAME, 10, "bold"))
+radiobutton3 = Radiobutton(text="Center", value="Center", variable=radio_state, command=set_wm_position, background=BACKGROUND_COLOR, fg=TEXT_COLOR, font=(FONT_NAME, 10, "bold"))
+radiobutton4 = Radiobutton(text="Bottom Left", value="Bottom-Left", variable=radio_state, command=set_wm_position, background=BACKGROUND_COLOR, fg=TEXT_COLOR, font=(FONT_NAME, 10, "bold"))
+radiobutton5 = Radiobutton(text="Bottom Right", value="Bottom-Right", variable=radio_state, command=set_wm_position, background=BACKGROUND_COLOR, fg=TEXT_COLOR, font=(FONT_NAME, 10, "bold"))
 radiobutton1.grid(column=1, row=5, sticky=W)
 radiobutton2.grid(column=1, row=6, sticky=W)
 radiobutton3.grid(column=1, row=7, sticky=W)
@@ -162,7 +155,7 @@ radiobutton4.grid(column=1, row=8, sticky=W)
 radiobutton5.grid(column=1, row=9, sticky=W)
 
 # Save Final Image Button 
-button_select_image = Button(text="Save Your Work", command=save_work, highlightbackground=YELLOW, fg=GREEN, bg=RED, width=20, font=(FONT_NAME, 10, "bold"))
+button_select_image = Button(text="Save Your Work", command=save_work, highlightbackground=BACKGROUND_COLOR, fg=TEXT_COLOR, bg=BUTTON_COLOR, width=20, font=(FONT_NAME, 10, "bold"))
 button_select_image.grid(column=2, row=10, pady=(20, 0))
 
 
