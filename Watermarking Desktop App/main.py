@@ -6,9 +6,15 @@ from PIL import Image,ImageTk
 
 # ---------------------------- CONSTANTS ------------------------------- #
 PINK = "#e2979c"
-RED = "#e7305b"
-GREEN = "#9bdeac"
-YELLOW = "#f7f5dd"
+RED = "#93BFCF"
+# RED = "#6D67E4"
+# RED = "#e7305b"
+GREEN = "#554994"
+# GREEN = "#DFA67B"
+# GREEN = "#9bdeac"
+YELLOW = "#BDCDD6"
+# YELLOW = "#453C67"
+# YELLOW = "#f7f5dd"
 FONT_NAME = "Courier"
 
 description_text = "1. Select watermark image (Transparnet background, .PNG)\n2. Select the image you want to add the watermark\n3. You can change the position, size and opacity of the watermark\n4. Save your work"
@@ -128,7 +134,7 @@ size = (500, 500)   # resize the image while keeping its aspect ratio
 img.thumbnail(size)
 tkimage = ImageTk.PhotoImage(img)    #Convert To photoimage
 label_image=Label(window, image=tkimage)   #Display the Image
-label_image.grid(column=2, row=0, rowspan=14)
+label_image.grid(column=2, row=0, rowspan=10)
 
 # Watermark size settings
 label_size = Label(text="Size:", justify=RIGHT )
@@ -144,11 +150,11 @@ label_position.config(bg=YELLOW, highlightthickness=0, fg=GREEN, font=(FONT_NAME
 label_position.grid(column=0, row=5, sticky=E, padx=(0, 20))
 radio_state = StringVar()   # create a StringVar to store the selected option
 radio_state.set("Center")   # set the initial value of the StringVar
-radiobutton1 = Radiobutton(text="Top Left", value="Top-Left", variable=radio_state, command=set_wm_position, background=YELLOW, )
-radiobutton2 = Radiobutton(text="Top Right", value="Top-Right", variable=radio_state, command=set_wm_position, background=YELLOW)
-radiobutton3 = Radiobutton(text="Center", value="Center", variable=radio_state, command=set_wm_position, background=YELLOW)
-radiobutton4 = Radiobutton(text="Bottom Left", value="Bottom-Left", variable=radio_state, command=set_wm_position, background=YELLOW)
-radiobutton5 = Radiobutton(text="Bottom Right", value="Bottom-Right", variable=radio_state, command=set_wm_position, background=YELLOW)
+radiobutton1 = Radiobutton(text="Top Left", value="Top-Left", variable=radio_state, command=set_wm_position, background=YELLOW, fg=GREEN, font=(FONT_NAME, 10, "bold"))
+radiobutton2 = Radiobutton(text="Top Right", value="Top-Right", variable=radio_state, command=set_wm_position, background=YELLOW, fg=GREEN, font=(FONT_NAME, 10, "bold"))
+radiobutton3 = Radiobutton(text="Center", value="Center", variable=radio_state, command=set_wm_position, background=YELLOW, fg=GREEN, font=(FONT_NAME, 10, "bold"))
+radiobutton4 = Radiobutton(text="Bottom Left", value="Bottom-Left", variable=radio_state, command=set_wm_position, background=YELLOW, fg=GREEN, font=(FONT_NAME, 10, "bold"))
+radiobutton5 = Radiobutton(text="Bottom Right", value="Bottom-Right", variable=radio_state, command=set_wm_position, background=YELLOW, fg=GREEN, font=(FONT_NAME, 10, "bold"))
 radiobutton1.grid(column=1, row=5, sticky=W)
 radiobutton2.grid(column=1, row=6, sticky=W)
 radiobutton3.grid(column=1, row=7, sticky=W)
@@ -157,7 +163,7 @@ radiobutton5.grid(column=1, row=9, sticky=W)
 
 # Save Final Image Button 
 button_select_image = Button(text="Save Your Work", command=save_work, highlightbackground=YELLOW, fg=GREEN, bg=RED, width=20, font=(FONT_NAME, 10, "bold"))
-button_select_image.grid(column=1, row=10)
+button_select_image.grid(column=2, row=10, pady=(20, 0))
 
 
 window.mainloop()
