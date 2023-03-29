@@ -74,7 +74,7 @@ window.title("Typing Speed App")
 window.config(padx=20, pady=20, bg=BACKGROUND_COLOR)
 
 # Load the words for the game
-all_words = load_words()
+load_words()
 
 # Current Statistics
 label_time = Label(text=f"TIME: 60", bg=BACKGROUND_COLOR, highlightthickness=0, fg=TEXT_COLOR, font=(FONT_NAME, 12, "bold"))
