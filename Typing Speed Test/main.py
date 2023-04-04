@@ -18,11 +18,13 @@ wpm_text = 0
 mistakes_text = 0
 high_score_text = 0
 all_words = []
-words = []
+on_screen_words = []
+user_input = []
 
 
 # ---------------------------- FUNCTIONS ------------------------------ #
 
+# Countdown mechanism for the test
 def countdown_timer(seconds):
     global remaining_seconds
     remaining_seconds = seconds
@@ -35,26 +37,27 @@ def countdown_timer(seconds):
         window.after(1000, countdown_timer, seconds)
 
 
+# Loading all the words from csv file for future use
 def load_words():
     global all_words
     with open("words.csv", "r") as file:
         for n in file.readlines():
             all_words.append(n.replace('\n', ''))
-        # label_words.configure(text=" ".join(all_words))
-        # print(all_words)
-        # all_words = file.readlines()
 
 
+# Choose 40 random words for the test
 def generate_words():
-    global words, all_words
-    words = random.sample(all_words, k=40)
-    print(words)
-    return " ".join(words)
+    global on_screen_words, all_words
+    on_screen_words = random.sample(all_words, k=40)
+    print(on_screen_words)
+    return " ".join(on_screen_words)
 
 
 # Start the test
 def start_test():
-    input_text["state"] = "normal" 
+    global user_input
+    user_input = []
+    input_entry["state"] = "normal" 
     button_start["state"] = "disabled"
     countdown_timer(60)
     label_words.configure(text=generate_words())
@@ -62,11 +65,37 @@ def start_test():
 
 # The test is over
 def stop_test():
-    input_text["state"] = "disable" 
+    input_entry["state"] = "disable" 
     button_start["state"] = "normal"
     label_words.configure(text="The test is over. Good job!")
 
 
+# Event listener: Process user input (count mistakes, change UI texts, ect...)
+def on_text_changed(event):
+    global user_input, on_screen_words, mistakes_text
+    current_text_input = event.widget.get()
+    user_input = current_text_input.lower().split(" ")
+    mistakes_text = 0
+
+    for word_index, word in enumerate(user_input):
+        for letter_index in range(len(word)):
+            # Skip checking letters that are outside of the answer words length
+            if letter_index >= len(on_screen_words[word_index]):
+                mistakes_text += 1
+                break
+
+            # Add mistakes +1 each time a finished word is less than answer word, except the the last word
+            if letter_index < len(on_screen_words[word_index]) and word_index != len(user_input)-1:
+                mistakes_text += 1
+
+            # Add mistakes +1 each time letter does not match with letter in answer word
+            print(word[letter_index], on_screen_words[word_index][letter_index])
+            if word[letter_index] != on_screen_words[word_index][letter_index]:
+                mistakes_text += 1
+
+    # Update labels on UI
+    label_words.configure(text=on_screen_words[len(user_input)-1:])
+    label_mistakes.configure(text=f"MISTAKES: {mistakes_text}")
 
 # ---------------------------- UI SETUP ------------------------------- #
 window = Tk()
@@ -92,18 +121,15 @@ label_high_score.grid(column=4, row=0, sticky=W, columnspan=1, padx=(40, 20))
 label_words = Label(text=f"Press the start button. And you can start typing", bg=BACKGROUND_COLOR, highlightthickness=0, fg=TEXT_COLOR, font=(FONT_NAME, 16, "bold"), wraplength=1000)
 label_words.grid(column=0, row=1, columnspan=5, padx=20, pady=(60, 30))
 
-# Input text field
-input_text = Text(window, height = 5, width=120, state= "disabled")
-# inputtxt = Text(window,height = 5,width = 20)
-input_text.grid(column=0, row=2, sticky=W, columnspan=5, padx=20, pady=(30, 60))
+# Create an Entry widget and attach a callback function to its Modified event
+input_entry = Entry(window, state= "disabled", validate="key", width=120)
+input_entry.bind("<Key>", on_text_changed)
+input_entry.grid(column=0, row=2, sticky=W, columnspan=5, padx=20, pady=(30, 60))
 
 # Start Button
 button_start = Button(text="Start", command=start_test, highlightbackground=BACKGROUND_COLOR, fg=TEXT_COLOR, bg=BUTTON_COLOR, width=20, font=(FONT_NAME, 10, "bold"))
 button_start.grid(column=4, row=3)
 
-# Restart Button
-# button_restart = Button(text="Restart", command=exit_test, highlightbackground=BACKGROUND_COLOR, fg=TEXT_COLOR, bg=BUTTON_COLOR,width=20, font=(FONT_NAME, 10, "bold"))
-# button_restart.grid(column=4, row=3)
 
 
 
