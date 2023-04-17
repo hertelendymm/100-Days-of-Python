@@ -1,5 +1,5 @@
 # 100-Days-of-Python
-Python challenges for practice.
+Python challenges/projects for practice.
 
 - 1.Text to Morse Code Converter
 - 2.Tic Tac Toe
