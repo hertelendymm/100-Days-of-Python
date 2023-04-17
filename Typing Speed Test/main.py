@@ -29,7 +29,6 @@ def countdown_timer(seconds):
     remaining_seconds = seconds
     if seconds == 0:
         label_time.configure(text="Time's up!")
-        # stop_test()
     else:
         label_time.configure(text=f"TIME: {seconds}")
         seconds -= 1
@@ -102,19 +101,19 @@ def generate_words():
     on_screen_words = random.sample(all_words, k=200)
     return on_screen_words
 
-
+# Calculate current wpord per minute
 def calculate_wpm(elapsed_time, cpm):
     global user_inputs
     wpm = (cpm / 5) / (elapsed_time / 60)
     return wpm
 
-
+# Calculate raw character per minute. Not counting mistakes
 def calculate_raw_cpm(elapsed_time):
     global user_inputs
     raw_cpm = len("".join(user_inputs)) / (elapsed_time / 60)
     return raw_cpm
 
-
+# Count and return mistakes sum in user's answer
 def calculate_mistakes_in_word(input_word, answer_word):
     number_of_mistakes = 0
     # Return 0 mistakes, because the answer is correct
@@ -201,13 +200,6 @@ input_entry.grid(column=0, row=2, sticky="nsew", columnspan=5, padx=20, pady=(30
 # Start Button
 button_start = Button(text="Start", command=start_test, highlightbackground=BACKGROUND_COLOR, fg=TEXT_COLOR, bg=BUTTON_COLOR, width=20, font=(FONT_NAME, 10, "bold"))
 button_start.grid(column=4, row=3)
-
-
-
-
-
-
-
 
 
 window.mainloop()
