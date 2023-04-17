@@ -11,6 +11,8 @@ TEXT_COLOR = "#554994"
 BACKGROUND_COLOR = "#BDCDD6"
 FONT_NAME = "Courier"
 
+
+# ---------------------------- VARIABLES ------------------------------- #
 remaining_seconds = 60
 all_words = []
 on_screen_words = []
