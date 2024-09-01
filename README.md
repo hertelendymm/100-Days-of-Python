@@ -6,4 +6,5 @@ I'm planning a rewrite for the existing projects as well.
 - 2.Tic Tac Toe
 - 3.Watermarking Desktop App
 - 4.Typing Speed Test
+- 5.Test
 
