@@ -10,7 +10,7 @@ TEXT_COLOR = "#554994"
 BACKGROUND_COLOR = "#BDCDD6"
 FONT_NAME = "Courier"
 
-description_text = "1. Select watermark image (Transparnet background, .PNG)\n2. Select the image you want to add the watermark\n3. You can change the position, size and opacity of the watermark\n4. Save your work"
+description_text = "1. Select watermark image (Transparnet background, .PNG)\n2. Select the image you want to add the watermark\n3. You can change the position and size of the watermark\n4. Save your work"
 image_height = 0
 image_width = 0
 image_path = "images/placeholder-image.png"
