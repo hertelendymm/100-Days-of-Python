@@ -7,6 +7,6 @@ I'm planning a rewrite for the existing projects as well.
 2. Tic Tac Toe [EASY]
     - Command line program --> [Screenshot](https://github.com/hertelendymm/100-Days-of-Python/blob/main/screenshots/002.png)
 3. Watermarking Desktop App [EASY]
-    - Tkinter GUI program--> [Screenshot](https://github.com/hertelendymm/100-Days-of-Python/blob/main/screenshots/003.png)
-4. Typing Speed Test [EASY]--> [Screenshot](https://github.com/hertelendymm/100-Days-of-Python/blob/main/screenshots/004.png)
-    - Tkinter GUI program
+    - Tkinter GUI program  --> [Screenshot](https://github.com/hertelendymm/100-Days-of-Python/blob/main/screenshots/003.png)
+4. Typing Speed Test [EASY]
+    - Tkinter GUI program  --> [Screenshot](https://github.com/hertelendymm/100-Days-of-Python/blob/main/screenshots/004.png)
