@@ -6,12 +6,15 @@ Continuously expanding with new projects and improvements for the older ones
 **Ongoing** - New challenges and rewrites are being added regularly.
 
 ## Challenges
-**Easy:**
-1. [Text to Morse Code Converter](https://github.com/hertelendymm/100-Days-of-Python/blob/main/screenshots/001.png) - Command line program
-2. [Tic Tac Toe](https://github.com/hertelendymm/100-Days-of-Python/blob/main/screenshots/002.png) - Command line program
-3. [Watermarking Desktop App](https://github.com/hertelendymm/100-Days-of-Python/blob/main/screenshots/003.png) - Tkinter GUI program
-4. [Typing Speed Test](https://github.com/hertelendymm/100-Days-of-Python/blob/main/screenshots/004.png) - Tkinter GUI program
+**Command line program:**
+- 001 - [Text to Morse Code Converter](https://github.com/hertelendymm/100-Days-of-Python/blob/main/screenshots/001.png) - EASY
+- 002 - [Tic Tac Toe](https://github.com/hertelendymm/100-Days-of-Python/blob/main/screenshots/002.png) - EASY
+- 005 - Choose Your Own Adventure - Command line program
+- 006 - Higher Lower Game with API
 
-**Medium:**
+**Tkinter GUI program:**
+- 003 - [Watermarking Desktop App](https://github.com/hertelendymm/100-Days-of-Python/blob/main/screenshots/003.png) - EASY
+- 004 - [Typing Speed Test](https://github.com/hertelendymm/100-Days-of-Python/blob/main/screenshots/004.png) - EASY
 
-**Hard:**
+**Flask:**
+**Django:**
